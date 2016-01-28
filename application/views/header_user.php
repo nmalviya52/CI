@@ -87,14 +87,16 @@ nav a#pull {
 <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top clearfix" role="navigation">
+        <img src="/CI/thumbnail.jpg" class="navbar-left" height = "50"; width="100" style="padding-left:20px">
         <div class="container">
+
     <ul class="clearfix">
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Progress</a></li>
+        <li><a href="/CI/index.php/welcome/progpage">Progress</a></li>
         <li><a href="#">Contacts</a></li> 
         <li><a href="#">Projects</a></li>
-       <a type="button" class="btn btn-success navbar-btn navbar-right " style="height:30px;width:100px;" href="#aboutModal" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-check"></span> Search</a> 
+       <a type="button" class="btn btn-success navbar-btn navbar-right " style="height:30px;width:100px;" href="#aboutModal" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-search"></span> Search</a> 
     </ul>
 </div>
 </nav>
@@ -118,7 +120,7 @@ nav a#pull {
 <input type="text" id="in" class="form-control " onkeyup='showHint(this.value)' placeholder="Search" />
 <span class="input-group-btn">
                                     <button class="btn btn-danger" type="button">
-                                        <span class=" glyphicon glyphicon-search"></span>
+                                        <span class="glyphicon glyphicon-search"></span>
                                     </button>
                                 </span>
 </div>

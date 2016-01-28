@@ -23,61 +23,43 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 
 		$this->load->helper('url');
-
-	//	$this->load->model('srch');
+		$this->load->library(array('ion_auth','form_validation'));
 	}
 
 	public function index()
-	{	 //echo $_SESSION['type'];
-		if(isset($_COOKIE['type']))
-		{if($_COOKIE['type'] == 2){
-			//fetch logged out header
-			$this->load->view('admin_head');
-			;
-		}
-		else if($_COOKIE['type'] == 1) $this->load->view('cust_head');
-		else if($_COOKIE['type'] == 0) $this->load->view('vendor_head');}
-		//else $this->load->view('logged_out_head');
-			
-		
+	{
+		// if($this->session->userdata('type')=='customer') $this->load->view('header_user');		 
+		// elseif($this->session->userdata('type') =='vendor') $this->load->view('vendor_head');
+		// elseif ($this->session->userdata('type') =='admin') $this->load->view('admin_head');
+		// else $this->load->view('logged_out_head');
+		$this->load->view('header_user');
 		$this->load->view('welcome_message');
 	}
 
 
 	public function progpage()
-	{	echo "string";
-		
-		//$q=$this->progresspull->pull();
-		$this->load->model('logmodel');
+	{
+		if($this->session->userdata('type')=='admin')
+		{$this->load->model('logmodel');
 		$q = $this->logmodel->pull();
 		$data['tab']=$q;
-
+		$this->load->view('Progress', $data);}
+		elseif($this->session->userdata('type')=='customer')
+		{
+			//load customer progress page
+		}
 		
-		//var_dump(expression)
-		$this->load->view('Progress', $data);
-		//$this->load->view('welcome_message');
 	}
-	public function upd_prog()
-{	echo $this->input->ip_address();
-	// if($_session['is_admin']){
-	// 	$this->load->view('');//change page
-	// }
-	// else 
-	// {
-	// 	$this->index();
-	// }
-}
+
 public function che(){
-	$this->load->view('reg_page');
+	$this->load->view('measurements.html');
 }
 
 public function srch()
 {	
-	//echo "esfdzdxc";
 	$q = $_GET['query'];
 	$q = strtolower($q);
-		$this->load->model('logmodel');
-
+	$this->load->model('logmodel');
 	$x = $this->logmodel->search($q);
 	$data['list'] = $x;
 	$this->load->view('in.html',$data);

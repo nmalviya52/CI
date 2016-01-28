@@ -27,45 +27,8 @@
  	<button type="submit">Click me!</button>
  	</form>
 <div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
+	<h1></h1>
 <body background="1264.jpg">
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Home</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    	<l1>
-            				<img src="thumbnail.jpg" height="50px" width="70px"></img>
-            			</li>
-                </ul>
-                </ul>
-            </div>
-            
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
 
 
 <div class="container">
@@ -123,23 +86,26 @@
   </div>
 </div>
 <br> <br>
+<?php
+if(!$this->ion_auth->logged_in()) echo'
 <div class="container">
 	<h3 class="text-info" style="color:black"> <B>Login to proceed</B></h3>
 	<br>
 </div>
 <div class="container">
-	<div class="row">
-		<div class="col-md-4">
-			<a href="/CI/index.php/auth/?a=1" class="btn btn-primary btn-lg btn-block" >Customer</a>
-		</div>
-		<div class="col-md-4">
-			<a href="/CI/index.php/auth/?a=2"  class="btn btn-primary btn-lg btn-block">Vendor</a>
-		</div>
-		<div class="col-md-4">
-			<a href="/CI/index.php/auth/?a=3"  class="btn btn-primary btn-lg btn-block">Admin</a>		</div>
-	</div>
+  <div class="row">
+    <div class="col-md-4">
+      <a href="/CI/index.php/auth/?a=1" class="btn btn-primary btn-lg btn-block" >Customer</a>
+    </div>
+    <div class="col-md-4">
+      <a href="/CI/index.php/auth/?a=2"  class="btn btn-primary btn-lg btn-block">Vendor</a>
+    </div>
+    <div class="col-md-4">
+      <a href="/CI/index.php/auth/?a=3"  class="btn btn-primary btn-lg btn-block">Admin</a>    </div>
+  </div>
 </div>
-<br>
+<br>';
+?>
 <br>
 <footer id="site-footer">
       <div class="container fullwidth">

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<head>
+    <meta charset="utf-8">
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+     <link rel="stylesheet" href="/CI/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>Aapka Painter- Best way to get your house painted</title>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+
+
+
+		<div class="main">
+			<h1>Measurements</h1>
+
+
+			<div class="measurements"></div>
+			<div class="measurements">
+			<input type="number" id="no" onkeyup="boxes(this.value)">
+				<div id="x"></div>
+
+			</div>
+			
+		</div>
+
+
+
+</body>
+<script type="text/javascript">
+	function boxes (n) {
+		var i = 0;
+		var str = '55';
+		for(i=0;i<n;i++)
+		{
+			document.getElementById('x').innerHTML = str;
+		}
+
+	}
+</script>
