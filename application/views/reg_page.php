@@ -1,0 +1,1 @@
+<form action="/CI/index.php/welcome/upd_prog" method="post"><input type="radio" name="type" value=1>Customer &nbsp; <input type="radio" name="type" value=0>Vendor<input type="submit" value='submit'></form>

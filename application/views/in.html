@@ -1,0 +1,14 @@
+<?php
+echo "<table>";
+for($i=0;$i<($list['size']);$i++)
+{
+    echo"
+
+    <tr>
+       <td><a href='/ap/index.php/welcome/proj?id=".$list[$i]."'>".$list[$i]."</a>
+    </tr>
+
+    ";
+}
+echo "</table>";
+?>

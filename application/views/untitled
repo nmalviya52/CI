@@ -1,0 +1,14 @@
+    <div class="main">
+      <h1>Change Password</h1>
+      <div class="input_form">
+        <form >
+          <input type="password" name="identity" placeholder="mobile number"   required="">
+          <input type="password" name="password" placeholder="password"   required="">
+          <input type="password" name="password" placeholder="password"   required="">
+      
+
+        </form>
+
+      </div>
+      
+    </div>
