@@ -391,7 +391,7 @@ class Ion_auth
                 }
                 else
                 {
-                	$this->session->unset_userdata( array($identity, 'id', 'user_id') );
+                	$this->session->unset_userdata( array($identity, 'id', 'user_id','type') );
                 }
 
 		// delete the remember me cookies if they exist

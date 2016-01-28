@@ -1028,6 +1028,18 @@ class Ion_auth_model extends CI_Model
 		return FALSE;
 	}
 
+	 public function getType($x)
+	 {
+	 		$info = $this->db->query("SELECT * FROM users WHERE phone = $x");
+	 		$info = $info->result_array();
+
+	 		$type =$info[0]['grp'];
+	 		if($type == 0) return "vendor";
+	 		else if ($type == 1) return "customer";
+	 		else return "admin";
+	 		//return $type;
+	 }
+
 	/**
 	 * is_max_login_attempts_exceeded
 	 * Based on code from Tank Auth, by Ilya Konyukhov (https://github.com/ilkon/Tank-Auth)

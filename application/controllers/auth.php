@@ -8,6 +8,7 @@ class Auth extends CI_Controller {
 		$this->load->database();
 		$this->load->library(array('ion_auth','form_validation'));
 		$this->load->helper(array('url','language'));
+		//$this->load->model('logmodel');
 
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
@@ -50,16 +51,11 @@ class Auth extends CI_Controller {
 			// redirect them to the login page
 			redirect('auth/login', 'refresh');
 		}
-		elseif (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
+		else // remove this elseif if you want to enable this for non-admins
 		{
-			// redirect them to the home page because they must be an administrator to view this
-			redirect('welcome/index');
+				redirect('welcome');			
 		}
-		else
-		{
-			//load admin page
-			redirect('welcome/progpage');
-		}	
+			
 	}
 
 	// log the user in
@@ -76,18 +72,21 @@ class Auth extends CI_Controller {
 			// check to see if the user is logging in
 			// check for "remember me"
 			$remember = (bool) $this->input->post('remember');
-
-			if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
+			$identit = $this->input->post('identity');
+			if ($this->ion_auth->login($identit, $this->input->post('password'), $remember))
 			{
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
+				$this->session->set_userdata('type',$this->ion_auth_model->getType($identit));
+				//setcookie('asdfgh',1);
+				//die($this->ion_auth_model->getType($identit));
 				redirect('auth/in');
 			}
 			else
 			{
 				// if the login was un-successful
-				// redirect them back to the login page
+				// edirect them back to the login page
 				$this->session->set_flashdata('message', $this->ion_auth->errors());
 				redirect('auth/login'); // use redirects instead of loading views for compatibility with MY_Controller libraries
 			}
